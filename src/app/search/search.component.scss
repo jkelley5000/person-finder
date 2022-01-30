@@ -1,0 +1,20 @@
+.search {
+  margin-top: 36px;
+  width: 561px;
+  display: flex;
+  align-items: center;
+
+  input {
+    padding-left: 32px;
+    width: 561px;
+    height: 40px;
+    background: #EFEFEF;
+    border: none;
+    border-radius: 4px;
+  }
+
+  .icon-magnifying-glass {
+    position: absolute;
+    margin-left: 16px;
+  }
+}

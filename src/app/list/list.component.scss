@@ -1,0 +1,40 @@
+.list {
+  margin-top: 50px;
+  width: 575px;
+
+  .person {
+    margin-bottom: 24px;
+    display: flex;
+    flex-direction: row;
+    height: 96px;
+
+    &-image {
+      margin-right: 24px;
+      width: 95.83px;
+      height: 96px;
+      background-color: #C4C4C4;
+    }
+
+    &-text {
+      p {
+        font-family: Helvetica;
+        text-align: left;
+        font-style: normal;
+      }
+      .name {
+        margin-top: 0;
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 24px;
+        letter-spacing: -0.025em;
+      }
+
+      .description {
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 21px;
+        letter-spacing: -0.015em;
+      }
+    }
+  }
+}

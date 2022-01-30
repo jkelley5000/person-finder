@@ -1,0 +1,12 @@
+<div class="search">
+  <input 
+    type="search"
+    placeholder="Search in Air HQ"
+    [(ngModel)]="searchValue"
+    (keyup)="setSearchValueInService($event)"
+  />
+  <img 
+    src="../../assets/Magnifiying.png"
+    class="icon-magnifying-glass"
+  >
+</div>
