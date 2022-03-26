@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { Person } from 'src/app/models/person.model';
 import { AppService } from '../app.service';
 import { SearchService } from '../search/search.service';
@@ -10,6 +11,7 @@ import { SearchService } from '../search/search.service';
 })
 export class ListComponent implements OnInit {
 
+  appServiceSubscription: Subscription = new Subscription;
   persons: Array<any> = [];
   searchValue: string = '';
 
@@ -19,22 +21,22 @@ export class ListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.searchService.searchValue$.subscribe(value => {
-      if (value) {
-        this.searchValue = value;
-      }
-    });
-    this.appService.getPersons()
+    this.appServiceSubscription = this.appService.getPersons()
       .subscribe((data: any) => {
         if (data) {
           this.persons = data;
         }
       });
+    this.searchService.searchValue$.subscribe(value => {
+      if (value) {
+        this.searchValue = value;
+      }
+    });
   }
 
   ngOnDestroy() {
     this.searchService.searchValue$.unsubscribe();
-    // this.appService.unsubscribe();
+    this.appServiceSubscription.unsubscribe();
   }
 
 }
